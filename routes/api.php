@@ -21,8 +21,8 @@ use App\Http\Controllers\CompanyController;
 */
 
 
-Route::get('/healt', function (Request $request) {
-    return 'Healt ...';
+Route::get('/health', function (Request $request) {
+    return 'Health ...';
 });
 
 Route::post('v1/login', [LoginController::class, 'login']);
