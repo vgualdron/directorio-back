@@ -148,7 +148,7 @@ class CompanyController extends Controller
         // Usando el Storage guardar en el disco creado anteriormente y pasandole a 
         // la función "put" el nombre de la imagen y los datos de la imagen como 
         // segundo parametro
-        Storage::disk('images')->put($img_name, $img);
+        Storage::disk('images/logos')->put($img_name, $img);
     }
     
     
