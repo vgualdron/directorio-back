@@ -35,7 +35,7 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
         Route::put('/{id}', [UserController::class, 'update']);
         Route::put('/change-password/{id}', [UserController::class, 'changePassword']);
         Route::delete('/{id}', [UserController::class, 'destroy']);
-        Route::post('/change-image-profile/{id}', [UserController::class, 'changeImageProfile']);
+        Route::post('/change-image-profile', [UserController::class, 'changeImageProfile']);
     });
     
     Route::group(['prefix'=>'/configuration'], function () {
