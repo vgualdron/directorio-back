@@ -143,12 +143,12 @@ class CompanyController extends Controller
         // Obtener la extensión de la Imagen
         $img_extension = $this->getB64Extension($image_avatar_b64);
         // Crear un nombre aleatorio para la imagen
-        $img_name = $id . '_user_avatar'. '.' . $img_extension;
+        $img_name = $id . '_logo'. '.' . $img_extension;
         // echo $image_name;
         // Usando el Storage guardar en el disco creado anteriormente y pasandole a 
         // la función "put" el nombre de la imagen y los datos de la imagen como 
         // segundo parametro
-        Storage::disk('images/logos')->put($img_name, $img);
+        Storage::disk('logos')->put($img_name, $img);
     }
     
     

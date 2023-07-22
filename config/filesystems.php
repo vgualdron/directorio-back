@@ -63,6 +63,13 @@ return [
             'visibility' => 'public', //si se podra acceder desde el exterior
         ],
 
+        'logos' => [
+            'driver' => 'local', //tipo driver local-nube(s3 de amazon)
+            'root' => storage_path('app/public/images/lgos'), //ruta en la carpeta storage/app y 
+            'url' => env('APP_URL').'/images', //ruta base storage no cambiar
+            'visibility' => 'public', //si se podra acceder desde el exterior
+        ],
+
     ],
 
     /*
