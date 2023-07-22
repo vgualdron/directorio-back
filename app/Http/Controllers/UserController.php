@@ -166,7 +166,7 @@ class UserController extends Controller
         try {
             Storage::disk('profile')->put($img_name, $img);
             $item = User::find($idUserSesion)->update([
-                'photo' => $image_name
+                'photo' => $img_name
             ]);
         } catch (Exception $e) {
             return response()->json([
