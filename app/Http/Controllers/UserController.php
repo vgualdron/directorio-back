@@ -34,7 +34,7 @@ class UserController extends Controller
     public function show($id)
     {
         try {
-            $items = User::find($id);
+            $item = User::find($id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -43,7 +43,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-            'data' => $items,
+            'data' => $item,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
     }
@@ -144,7 +144,6 @@ class UserController extends Controller
         // Obtener mediante una expresión regular la extensión imagen y guardarla
         // en la variable "img_extension"        
         preg_match("/^data:image\/(.*);base64/i",$base64_image, $img_extension);   
-        print_r($img_extension);
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];  
