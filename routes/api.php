@@ -6,8 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PlanController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +53,11 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
         Route::delete('/{id}', [CategoryController::class, 'destroy']);
     });
     
-    Route::group(['prefix'=>'/plan'], function () {
-        Route::get('/', [PlanController::class, 'index']);
-        Route::get('/{id}', [PlanController::class, 'show']);
-        Route::post('/', [PlanController::class, 'store']);
-        Route::put('/{id}', [PlanController::class, 'update']);
-        Route::delete('/{id}', [PlanController::class, 'destroy']);
+    Route::group(['prefix'=>'/product'], function () {
+        Route::get('/', [ProductController::class, 'index']);
+        Route::get('/{id}', [ProductController::class, 'show']);
+        Route::post('/', [ProductController::class, 'store']);
+        Route::put('/{id}', [ProductController::class, 'update']);
+        Route::delete('/{id}', [ProductController::class, 'destroy']);
     });
 });

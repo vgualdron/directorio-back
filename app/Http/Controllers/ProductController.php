@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plan;
+use App\Models\Product;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class PlanController extends Controller
+class ProductController extends Controller
 {
     public function index(Request $request)
     {
         try {
             $idUserSesion = $request->user()->id;
-            $items = Plan::where('id', '>', 0)->get();
+            $items = Product::where('id', '>', 0)->get();
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -31,7 +31,7 @@ class PlanController extends Controller
     public function show(Request $request, $id)
     {
         try {
-            $items = Plan::find($id);
+            $items = Product::find($id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -49,7 +49,7 @@ class PlanController extends Controller
     {
         try {
             $idUserSesion = $request->user()->id;
-            $item = Plan::create($request->all());
+            $item = Product::create($request->all());
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -66,7 +66,7 @@ class PlanController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $items = Plan::find($id)
+            $items = Product::find($id)
                         ->update($request->all());
         } catch (Exception $e) {
             return response()->json([
@@ -84,7 +84,7 @@ class PlanController extends Controller
     public function destroy(Request $request, $id)
     {
         try {
-            $items = Plan::destroy($id);
+            $items = Product::destroy($id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],

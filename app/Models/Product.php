@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Plan extends Authenticatable
+class Product extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
