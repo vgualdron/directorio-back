@@ -23,6 +23,8 @@ class Product extends Authenticatable
         'description',
         'priority',
         'categorie_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
