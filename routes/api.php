@@ -61,13 +61,4 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
         Route::put('/{id}', [PlanController::class, 'update']);
         Route::delete('/{id}', [PlanController::class, 'destroy']);
     });
-    
-    Route::group(['prefix'=>'/company'], function () {
-        Route::get('/', [CompanyController::class, 'index']);
-        Route::get('/{id}', [CompanyController::class, 'show']);
-        Route::post('/', [CompanyController::class, 'store']);
-        Route::put('/{id}', [CompanyController::class, 'update']);
-        Route::delete('/{id}', [CompanyController::class, 'destroy']);
-        Route::post('/change-logo/{id}', [CompanyController::class, 'changeLogo']);
-    });
 });
