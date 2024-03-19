@@ -22,6 +22,7 @@ class Product extends Authenticatable
         'price',
         'description',
         'priority',
+        'categorie_id',
     ];
 
 }
