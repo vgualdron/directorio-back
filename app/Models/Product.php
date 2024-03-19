@@ -23,8 +23,6 @@ class Product extends Authenticatable
         'description',
         'priority',
         'categorie_id',
-        'created_at',
-        'updated_at',
     ];
 
     /**
@@ -32,7 +30,10 @@ class Product extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 
     /**
      * The attributes that should be cast.
