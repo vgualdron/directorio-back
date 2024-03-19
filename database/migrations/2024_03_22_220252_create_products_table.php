@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categorie_id');
             $table->timestamps();
             $table->foreign('categorie_id')
-              ->references('id')->on('products')->onDelete('restrict');
+              ->references('id')->on('categories')->onDelete('restrict');
         });
         
         DB::table('products')->insert(
