@@ -171,11 +171,12 @@ class UserController extends Controller
                 'photo' => $img_name
             ]);
 
-            $path = 'app/public/images/profile/'.$userSesion->photo;
-            if($item && Storage::exists($path)) {
+            // $path = 'app/public/images/profile/'.$userSesion->photo;
+            $path = $userSesion->photo;
+            // if($item && Storage::exists($path)) {
                 $flag = '1';
-                Storage::delete($path);
-            }
+                Storage::disk('profile')->delete($path);
+            // }
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
