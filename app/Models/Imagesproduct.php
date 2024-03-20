@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Product extends Authenticatable
+class Imagesproduct extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -19,10 +19,7 @@ class Product extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'price',
-        'description',
-        'priority',
-        'categorie_id',
+        'product_id',
     ];
 
     /**
@@ -43,10 +40,5 @@ class Product extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function imagesproduct()
-    {
-        return $this->hasMany(Imagesproduct::class, 'product_id', 'id');
-    }
 
 }
