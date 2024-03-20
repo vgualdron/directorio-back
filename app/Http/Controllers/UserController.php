@@ -185,6 +185,7 @@ class UserController extends Controller
 
         return response()->json([
             'data' => $item,
+            'path' => $path,
             'flag' => $flag,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
