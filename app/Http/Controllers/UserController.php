@@ -171,7 +171,7 @@ class UserController extends Controller
                 'photo' => $img_name
             ]);
 
-            $path = 'profile/'.$userSesion->photo;
+            $path = 'app/public/images/profile/'.$userSesion->photo;
             if($item && Storage::exists($path)) {
                 $flag = '1';
                 Storage::delete($path);
