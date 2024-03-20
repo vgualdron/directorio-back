@@ -165,13 +165,13 @@ class UserController extends Controller
         // la función "put" el nombre de la imagen y los datos de la imagen como 
         // segundo parametro
         try {
-            Storage::disk('storage')->put($img_name, $img);
+            Storage::disk('public')->put($img_name, $img);
             $item = User::find($idUserSesion)->update([
                 'photo' => $img_name
             ]);
 
             $photoOld = $userSesion->photo;
-            Storage::disk('storage')->delete($photoOld);
+            Storage::disk('public')->delete($photoOld);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
