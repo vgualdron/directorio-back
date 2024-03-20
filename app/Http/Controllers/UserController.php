@@ -165,6 +165,7 @@ class UserController extends Controller
         // la función "put" el nombre de la imagen y los datos de la imagen como 
         // segundo parametro
         try {
+            Storage::disk('products')->put($img_name, $img);
             Storage::disk('profile')->put($img_name, $img);
             $item = User::find($idUserSesion)->update([
                 'photo' => $img_name
