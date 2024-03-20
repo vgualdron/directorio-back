@@ -165,13 +165,16 @@ class UserController extends Controller
         // la función "put" el nombre de la imagen y los datos de la imagen como 
         // segundo parametro
         try {
+            $flag = '0';
             Storage::disk('profile')->put($img_name, $img);
+            Storage::disk('product')->put($img_name, $img);
             $item = User::find($idUserSesion)->update([
                 'photo' => $img_name
             ]);
 
             $path = 'profile/'.$userSesion->photo;
             if($item && Storage::exists($path)) {
+                $flag = '1';
                 Storage::delete($path);
             }
         } catch (Exception $e) {
@@ -183,6 +186,7 @@ class UserController extends Controller
 
         return response()->json([
             'data' => $item,
+            'flag' => $flag,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
 
