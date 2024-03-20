@@ -167,7 +167,6 @@ class UserController extends Controller
         try {
             $flag = '0';
             Storage::disk('profile')->put($img_name, $img);
-            Storage::disk('product')->put($img_name, $img);
             $item = User::find($idUserSesion)->update([
                 'photo' => $img_name
             ]);
