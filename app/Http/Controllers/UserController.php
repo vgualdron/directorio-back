@@ -169,6 +169,11 @@ class UserController extends Controller
             $item = User::find($idUserSesion)->update([
                 'photo' => $img_name
             ]);
+
+            $path = 'profile/'.$userSesion->photo;
+            if($item && Storage::exists($path)) {
+                Storage::delete($path);
+            }
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -178,7 +183,6 @@ class UserController extends Controller
 
         return response()->json([
             'data' => $item,
-            'dataUserSesion' => $userSesion,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
 
