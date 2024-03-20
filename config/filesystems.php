@@ -61,6 +61,7 @@ return [
             'root' => storage_path('app/public/images/profile'), //ruta en la carpeta storage/app y 
             'url' => env('APP_URL').'/images', //ruta base storage no cambiar
             'visibility' => 'public', //si se podra acceder desde el exterior
+            'throw' => false,
         ],
 
         'logos' => [
@@ -68,6 +69,7 @@ return [
             'root' => storage_path('app/public/images/logos'), //ruta en la carpeta storage/app y 
             'url' => env('APP_URL').'/images', //ruta base storage no cambiar
             'visibility' => 'public', //si se podra acceder desde el exterior
+            'throw' => false,
         ],
 
     ],
