@@ -151,7 +151,8 @@ class UserController extends Controller
     
     public function changeImageProfile(Request $request)
     {
-        $idUserSesion = $request->user()->id;
+        $userSesion = $request->user();
+        $idUserSesion = $userSesion->id;
         // Obtener los datos de la imagen
         $image_avatar_b64 = $request->image;
         $img = $this->getB64Image($image_avatar_b64);
@@ -177,6 +178,7 @@ class UserController extends Controller
 
         return response()->json([
             'data' => $item,
+            'dataUserSesion' => $userSesion,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
 
