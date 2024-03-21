@@ -19,6 +19,7 @@ class Images extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'order',
         'product_id',
     ];
 
