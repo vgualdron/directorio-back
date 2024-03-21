@@ -70,13 +70,14 @@ class ImageController extends Controller
     {
         $userSesion = $request->user();
         $idUserSesion = $userSesion->id;
+        $productId = $request->product_id;
         // Obtener los datos de la imagen
         $image_avatar_b64 = $request->image;
         $img = $this->getB64Image($image_avatar_b64);
         // Obtener la extensión de la Imagen
         $img_extension = $this->getB64Extension($image_avatar_b64);
         // Crear un nombre aleatorio para la imagen
-        $img_name = $idUserSesion . '_' . strtotime("now") . '.' . $img_extension;
+        $img_name = $productId . '_' . strtotime("now") . '.' . $img_extension;
         // echo $image_name;
         // Usando el Storage guardar en el disco creado anteriormente y pasandole a 
         // la función "put" el nombre de la imagen y los datos de la imagen como 
@@ -86,7 +87,7 @@ class ImageController extends Controller
             Storage::disk('products')->put($img_name, $img);
             $item = Image::create([
                 'name' => $img_name,
-                'product_id' => $request->product_id,
+                'product_id' => $productId,
                 'order' => $request->order,
             ]);
 
