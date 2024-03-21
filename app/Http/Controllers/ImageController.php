@@ -83,7 +83,7 @@ class ImageController extends Controller
         // segundo parametro
 
         try {
-            Storage::disk('product')->put($img_name, $img);
+            Storage::disk('products')->put($img_name, $img);
             $item = Image::create([
                 'name' => $img_name,
                 'product_id' => $request->product_id,
