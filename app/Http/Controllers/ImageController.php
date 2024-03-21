@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Imagesproduct;
+use App\Models\Image;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ImagesproductController extends Controller
+class ImageController extends Controller
 {
     public function index(Request $request, $id)
     {
         try {
             $idUserSesion = $request->user()->id;
-            $items = Imagesproduct::where('product_id', '=', $id)
-                                        ->with('imagesproduct')
-                                        ->orderBy('updated_at', 'desc')->get();
+            $items = Image::where('product_id', '=', $id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -33,7 +31,7 @@ class ImagesproductController extends Controller
     public function show(Request $request, $id)
     {
         try {
-            $items = Imagesproduct::find($id);
+            $items = Image::find($id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -51,7 +49,7 @@ class ImagesproductController extends Controller
     {
         try {
             $idUserSesion = $request->user()->id;
-            $item = Imagesproduct::create($request->all());
+            $item = Image::create($request->all());
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -68,7 +66,7 @@ class ImagesproductController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $items = Imagesproduct::find($id)
+            $items = Image::find($id)
                         ->update($request->all());
         } catch (Exception $e) {
             return response()->json([
@@ -86,7 +84,7 @@ class ImagesproductController extends Controller
     public function destroy(Request $request, $id)
     {
         try {
-            $items = Imagesproduct::destroy($id);
+            $items = Image::destroy($id);
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],

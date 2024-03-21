@@ -33,10 +33,4 @@ class City extends Authenticatable
         'updated_at',
     ];
     
-    
-    public function companies()
-    {
-        return $this->hasMany(Company::class, 'company_id', 'id');
-    }
-    
 }

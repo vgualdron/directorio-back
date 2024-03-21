@@ -44,9 +44,9 @@ class Product extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function imagesproduct()
+    public function images()
     {
-        return $this->hasMany(Imagesproduct::class, 'product_id', 'id');
+        return $this->hasMany(Images::class, 'product_id', 'id');
     }
 
 }
