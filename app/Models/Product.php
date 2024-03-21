@@ -46,7 +46,7 @@ class Product extends Authenticatable
 
     public function images()
     {
-        return $this->hasMany(Images::class, 'product_id', 'id');
+        return $this->hasMany(Image::class, 'product_id', 'id');
     }
 
 }
