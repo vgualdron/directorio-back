@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ImagesproductController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,11 +62,11 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
         Route::delete('/{id}', [ProductController::class, 'destroy']);
     });
 
-    Route::group(['prefix'=>'/imagesproduct'], function () {
-        Route::get('/product/{id}', [ImagesproductController::class, 'index']);
-        Route::get('/{id}', [ImagesproductController::class, 'show']);
-        Route::post('/', [ImagesproductController::class, 'store']);
-        Route::put('/{id}', [ImagesproductController::class, 'update']);
-        Route::delete('/{id}', [ImagesproductController::class, 'destroy']);
+    Route::group(['prefix'=>'/image'], function () {
+        Route::get('/product/{id}', [ImageController::class, 'index']);
+        Route::get('/{id}', [ImageController::class, 'show']);
+        Route::post('/', [ImageController::class, 'store']);
+        Route::put('/{id}', [ImageController::class, 'update']);
+        Route::delete('/{id}', [ImageController::class, 'destroy']);
     });
 });
