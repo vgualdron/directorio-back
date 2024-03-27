@@ -126,6 +126,8 @@ class ImageController extends Controller
     public function destroy(Request $request, $id)
     {
         try {
+            $item = Image::find($id);
+            Storage::disk('products')->delete($item->name);
             $items = Image::destroy($id);
         } catch (Exception $e) {
             return response()->json([
