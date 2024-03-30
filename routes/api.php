@@ -27,6 +27,7 @@ Route::get('/health', function (Request $request) {
 
 Route::post('v1/login', [LoginController::class, 'login']);
 
+// endpoints panel de administración
 Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () {
     Route::group(['prefix'=>'/user'], function () {
         Route::get('/', [UserController::class, 'index']);
@@ -68,5 +69,13 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
         Route::post('/', [ImageController::class, 'store']);
         Route::put('/{id}', [ImageController::class, 'update']);
         Route::delete('/{id}', [ImageController::class, 'destroy']);
+    });
+});
+
+
+// endpoints tienda virtual
+Route::group(["prefix" => "/v1"], function () {
+    Route::group(['prefix'=>'/product'], function () {
+        Route::get('/search', [ProductController::class, 'search']);
     });
 });

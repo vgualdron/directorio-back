@@ -99,4 +99,24 @@ class ProductController extends Controller
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
     }
+
+    public function search(Request $request)
+    {
+        try {
+            $idUserSesion = $request->user()->id;
+            $items = Product::where('id', '>', 0)
+                                ->with('images')
+                                ->orderBy('updated_at', 'desc')->get();
+        } catch (Exception $e) {
+            return response()->json([
+                'data' => [],
+                'message'=> $idUserSesion,
+            ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return response()->json([
+            'data' => $items,
+            'message' => 'Succeed',
+        ], JsonResponse::HTTP_OK);
+    }
 }
