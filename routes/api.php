@@ -64,7 +64,7 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
     });
 
     Route::group(['prefix'=>'/image'], function () {
-        Route::get('/product/search', [ImageController::class, 'search']);
+        Route::get('/product/search', [ImageController::class, 'index']);
         Route::get('/product/{id}', [ImageController::class, 'index']);
         Route::get('/{id}', [ImageController::class, 'show']);
         Route::post('/', [ImageController::class, 'store']);
