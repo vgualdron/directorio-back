@@ -51,7 +51,7 @@ class Product extends Authenticatable
 
     public function categorie()
     {
-        return $this->hasOne(Category::class, 'categorie_id', 'id');
+        return $this->hasOne(Category::class, 'id', 'categorie_id');
     }
 
 }

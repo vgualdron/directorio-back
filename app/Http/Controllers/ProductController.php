@@ -105,6 +105,7 @@ class ProductController extends Controller
         try {
             $items = Product::where('id', '>', 0)
                                 ->with('images')
+                                ->with('categorie')
                                 ->orderBy('updated_at', 'desc')->get();
         } catch (Exception $e) {
             return response()->json([
