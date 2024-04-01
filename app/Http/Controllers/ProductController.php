@@ -37,13 +37,13 @@ class ProductController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
-                'message'=>$e->getMessage(),
+                'message'=> 'show',
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         return response()->json([
             'data' => $items,
-            'message' => 'Succeed'
+            'message' => 'Succeed show'
         ], JsonResponse::HTTP_OK);
     }
 
