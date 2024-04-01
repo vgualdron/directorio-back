@@ -64,11 +64,18 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
     });
 
     Route::group(['prefix'=>'/image'], function () {
-        Route::get('/product/search', [ImageController::class, 'index']);
         Route::get('/product/{id}', [ImageController::class, 'index']);
         Route::get('/{id}', [ImageController::class, 'show']);
         Route::post('/', [ImageController::class, 'store']);
         Route::put('/{id}', [ImageController::class, 'update']);
         Route::delete('/{id}', [ImageController::class, 'destroy']);
+    });
+});
+
+
+// endpoints tienda virtual
+Route::group(["prefix" => "/v1"], function () {
+    Route::group(['prefix'=>'/product'], function () {
+        Route::get('/search/params', [ProductController::class, 'search']);
     });
 });
