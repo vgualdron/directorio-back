@@ -75,7 +75,7 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
 
 // endpoints tienda virtual
 Route::group(["prefix" => "/v1"], function () {
-    Route::group(['prefix'=>'/product'], function () {
+    Route::group(['prefix'=>'/home'], function () {
         Route::get('/search/params', [ProductController::class, 'search']);
     });
 });
