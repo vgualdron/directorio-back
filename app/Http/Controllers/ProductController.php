@@ -37,7 +37,7 @@ class ProductController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
-                'message'=> 'show',
+                'message'=>$e->getMessage(),
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
@@ -103,8 +103,9 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         try {
-            $idUserSesion = $request->user()->id;
-            $items = Product::get();
+            $items = Product::where('id', '>', 0)
+                                ->with('images')
+                                ->orderBy('updated_at', 'desc')->get();
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
