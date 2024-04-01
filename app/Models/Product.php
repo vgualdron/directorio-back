@@ -49,4 +49,9 @@ class Product extends Authenticatable
         return $this->hasMany(Image::class, 'product_id', 'id')->orderBy('order', 'desc');
     }
 
+    public function categorie()
+    {
+        return $this->hasOne(Category::class, 'categorie_id', 'id');
+    }
+
 }
