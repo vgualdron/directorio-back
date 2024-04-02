@@ -85,6 +85,12 @@ class ImageController extends Controller
 
         try {
             Storage::disk('products')->put($img_name, $img);
+            
+            $imgBrand = Image::make(public_path('images/products/'.$image_name));
+            /* insert watermark at bottom-right corner with 10px offset */
+            $img->insert(public_path('images/brand/logo-rectangle.png'), 'bottom-right', 10, 10);
+            $img->save(public_path('images/main-new.png'));
+
             $item = Image::create([
                 'name' => $img_name,
                 'product_id' => $productId,
