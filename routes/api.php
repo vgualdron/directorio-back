@@ -76,9 +76,13 @@ Route::group(["prefix" => "/v1"], function () {
     Route::group(['prefix'=>'/product'], function () {
         Route::get('/search/params', [ProductController::class, 'search']);
     });
-    Route::group(['prefix'=>'/category'], function () {
+    /* Route::group(['prefix'=>'/category'], function () {
          Route::get('/', [CategoryController::class, 'index']);
+    }); */
+    Route::get('/category/get', function (Request $request) {
+        return 'Health ...';
     });
+
     Route::group(['prefix'=>'/configuration'], function () {
         Route::get('/', [ConfigurationController::class, 'index']);
     });
