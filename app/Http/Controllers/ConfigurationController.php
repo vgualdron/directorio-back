@@ -13,12 +13,12 @@ class ConfigurationController extends Controller
     public function index(Request $request)
     {
         try {
-            $idUserSesion = $request->user()->id;
+            // $idUserSesion = $request->user()->id;
             $items = Configuration::where('id', '>', 0)->get();
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
-                'message'=> $idUserSesion,
+                'message'=> $e->getMessage(),
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
