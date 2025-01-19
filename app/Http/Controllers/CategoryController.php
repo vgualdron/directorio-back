@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         try {
-            $idUserSesion = $request->user()->id;
+            // $idUserSesion = $request->user()->id;
             $items = Category::where('id', '>', 0)->get();
         } catch (Exception $e) {
             return response()->json([
