@@ -40,7 +40,6 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
     });
     
     Route::group(['prefix'=>'/configuration'], function () {
-        Route::get('/', [ConfigurationController::class, 'index']);
         Route::get('/{id}', [ConfigurationController::class, 'show']);
         Route::post('/', [ConfigurationController::class, 'store']);
         Route::put('/{id}', [ConfigurationController::class, 'update']);
@@ -48,7 +47,6 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
     });
    
     Route::group(['prefix'=>'/category'], function () {
-        Route::get('/', [CategoryController::class, 'index']);
         Route::get('/{id}', [CategoryController::class, 'show']);
         Route::post('/', [CategoryController::class, 'store']);
         Route::put('/{id}', [CategoryController::class, 'update']);
@@ -77,5 +75,11 @@ Route::group(["prefix" => "/v1", "middleware" => ["auth:sanctum"]], function () 
 Route::group(["prefix" => "/v1"], function () {
     Route::group(['prefix'=>'/product'], function () {
         Route::get('/search/params', [ProductController::class, 'search']);
+    });
+    Route::group(['prefix'=>'/category'], function () {
+         Route::get('/', [CategoryController::class, 'index']);
+    });
+        Route::group(['prefix'=>'/configuration'], function () {
+        Route::get('/', [ConfigurationController::class, 'index']);
     });
 });
