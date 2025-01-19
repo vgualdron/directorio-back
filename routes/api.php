@@ -79,7 +79,7 @@ Route::group(["prefix" => "/v1"], function () {
     /* Route::group(['prefix'=>'/category'], function () {
          Route::get('/', [CategoryController::class, 'index']);
     }); */
-    Route::get('/category/get', function (Request $request) {
+    Route::get('/category/', function (Request $request) {
         return 'Health ...';
     });
 
