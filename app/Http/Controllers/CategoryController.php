@@ -18,7 +18,7 @@ class CategoryController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
-                'message'=> $idUserSesion,
+                'message'=> $e->getMessage(),
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
