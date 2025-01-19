@@ -79,7 +79,7 @@ Route::group(["prefix" => "/v1"], function () {
     Route::group(['prefix'=>'/category'], function () {
          Route::get('/', [CategoryController::class, 'index']);
     });
-        Route::group(['prefix'=>'/configuration'], function () {
+    Route::group(['prefix'=>'/configuration'], function () {
         Route::get('/', [ConfigurationController::class, 'index']);
     });
 });
